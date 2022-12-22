@@ -1,1 +1,1 @@
-# odin-testing-practice
+# Jest Testing Practice

@@ -1,4 +1,4 @@
-import { capitalize, reverseString, calculator, caesarCipher, string } from './testing';
+import { capitalize, reverseString, calculator, caesarCipher, analyzeArray } from './testing';
 
 it('matches if first character is upper', () => {
     expect(capitalize('maria')).toEqual('Maria');
@@ -30,4 +30,13 @@ test('alphabet shift', () => {
 
 test('sentence shifting with punctuation and case match', () => {
     expect(caesarCipher('You have power over your mind - not outside events. Realize this, and you will find strength. - Marcus Aurelius')).toEqual('Zpv ibwf qpxfs pwfs zpvs njoe - opu pvutjef fwfout. Sfbmjaf uijt, boe zpv xjmm gjoe tusfohui. - Nbsdvt Bvsfmjvt');
+})
+
+test('outputting object containing numerical operations from array items', () => {
+    expect(analyzeArray([1,8,3,4,2,6])).toStrictEqual({
+        average: 4,
+        min: 1,
+        max: 8,
+        length: 6
+    })
 })

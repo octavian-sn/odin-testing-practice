@@ -53,4 +53,41 @@ function caesarCipher(a, b = 1) {
   return array.join('');
 }
 
-export {capitalize, reverseString, calculator, caesarCipher}
+function sort(a) {
+  if (a.length < 2) return a
+  else {
+
+    let arr = [];
+
+    let second = a;
+    let first = second.splice(0, a.length / 2)
+
+    let left = sort(second);
+    let right = sort(first);
+
+    while (left.length > 0 || right.length > 0) {
+      if (left.length > 0 && right.length === 0) arr = arr.concat(left.splice(0, left.length))
+      else if (right.length > 0 && left.length === 0 ) arr = arr.concat(right.splice(0, right.length))
+      else if (left[0] < right[0]) arr.push(left.shift());
+      else arr.push(right.shift());
+    }
+    return arr;
+  }
+}
+
+function analyzeArray(a) {
+  let object = {};
+  let sum = 0;
+  a.forEach(item => {
+    sum += item
+  })
+	object.average = sum / a.length;
+  let sorted = sort(a);
+  object.min = sorted[0];
+  object.max = sorted[sorted.length - 1];
+  object.length = sorted.length;
+  
+  return object
+}
+
+export {capitalize, reverseString, calculator, caesarCipher, analyzeArray}
